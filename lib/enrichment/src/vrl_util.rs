@@ -2,7 +2,7 @@
 use std::collections::BTreeMap;
 
 use crate::{Case, Condition, IndexHandle, TableRegistry};
-use vrl::diagnostic::{Label, Span};
+use vrl::diagnostic::Label;
 use vrl::prelude::*;
 
 #[derive(Debug)]

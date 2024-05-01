@@ -1,6 +1,6 @@
 #![deny(warnings)]
 
-use std::{collections::BTreeMap, convert::TryFrom};
+use std::collections::BTreeMap;
 
 use indexmap::IndexMap;
 use snafu::ResultExt;

@@ -1,5 +1,5 @@
 use std::borrow::Cow;
-use std::{collections::BTreeMap, convert::TryFrom, marker::PhantomData};
+use std::{collections::BTreeMap, marker::PhantomData};
 
 use lookup::lookup_v2::OwnedSegment;
 use lookup::{OwnedTargetPath, OwnedValuePath, PathPrefix};

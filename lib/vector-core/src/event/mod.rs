@@ -1,4 +1,4 @@
-use std::{convert::TryInto, fmt::Debug, sync::Arc};
+use std::{fmt::Debug, sync::Arc};
 
 pub use array::{into_event_stream, EventArray, EventContainer, LogArray, MetricArray, TraceArray};
 pub use estimated_json_encoded_size_of::EstimatedJsonEncodedSizeOf;

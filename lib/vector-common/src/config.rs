@@ -1,5 +1,5 @@
 use std::{
-    cmp::{Ord, Ordering, PartialOrd},
+    cmp::Ordering,
     fmt,
 };
 

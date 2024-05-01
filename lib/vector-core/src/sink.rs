@@ -1,4 +1,4 @@
-use std::{fmt, iter::IntoIterator, pin::Pin};
+use std::{fmt, pin::Pin};
 
 use futures::{stream, task::Context, task::Poll, Sink, SinkExt, Stream, StreamExt};
 

@@ -1,6 +1,6 @@
 #![allow(clippy::module_name_repetitions)]
 
-use std::marker::{PhantomData, Unpin};
+use std::marker::PhantomData;
 use std::{fmt::Debug, future::Future, pin::Pin, sync::Arc, task::Context, task::Poll};
 
 use futures::stream::{BoxStream, FuturesOrdered, FuturesUnordered};

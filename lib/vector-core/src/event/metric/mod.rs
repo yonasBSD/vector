@@ -1,11 +1,7 @@
 #[cfg(feature = "vrl")]
-use std::convert::TryFrom;
-
-#[cfg(feature = "vrl")]
 use vrl::compiler::value::VrlValueConvert;
 
 use std::{
-    convert::AsRef,
     fmt::{self, Display, Formatter},
     num::NonZeroU32,
 };

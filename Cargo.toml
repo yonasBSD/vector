@@ -318,7 +318,7 @@ postgres-openssl = { version = "0.5.0", default-features = false, features = ["r
 pulsar = { version = "6.1.0", default-features = false, features = ["tokio-runtime", "auth-oauth2", "flate2", "lz4", "snap", "zstd"], optional = true }
 rand = { version = "0.8.5", default-features = false, features = ["small_rng"] }
 rand_distr = { version = "0.4.3", default-features = false }
-rdkafka = { version = "0.35.0", default-features = false, features = ["tokio", "libz", "ssl", "zstd"], optional = true }
+rdkafka = { version = "0.35.0", features = ["libz", "ssl", "zstd-pkg-config", "dynamic_linking"], optional = true }
 redis = { version = "0.24.0", default-features = false, features = ["connection-manager", "tokio-comp", "tokio-native-tls-comp"], optional = true }
 regex = { version = "1.10.4", default-features = false, features = ["std", "perf"] }
 roaring = { version = "0.10.3", default-features = false, optional = true }
@@ -347,7 +347,7 @@ arr_macro = { version = "0.2.1" }
 
 # depending on fork for bumped nix dependency
 # https://github.com/heim-rs/heim/pull/360
-heim = { git = "https://github.com/vectordotdev/heim.git", branch = "update-nix", default-features = false, features = ["disk"] }
+sysinfo = "*"
 
 # make sure to update the external docs when the Lua version changes
 mlua = { version = "0.9.7", default-features = false, features = ["lua54", "send", "vendored", "macros"], optional = true }
@@ -438,7 +438,7 @@ target-powerpc64le-unknown-linux-gnu = ["api", "api-client", "enrichment-tables"
 target-powerpc-unknown-linux-gnu = ["api", "api-client", "enrichment-tables", "rdkafka?/cmake_build", "sinks", "sources", "sources-dnstap", "transforms", "unix", "enterprise"]
 
 # Enables features that work only on systems providing `cfg(unix)`
-unix = ["tikv-jemallocator", "allocation-tracing"]
+unix = []
 allocation-tracing = []
 
 # Enables kubernetes dependencies and shared code. Kubernetes-related sources,
@@ -528,7 +528,6 @@ sources-metrics = [
   "sources-apache_metrics",
   "sources-aws_ecs_metrics",
   "sources-eventstoredb_metrics",
-  "sources-host_metrics",
   "sources-internal_metrics",
   "sources-mongodb_metrics",
   "sources-nginx_metrics",
@@ -555,7 +554,6 @@ sources-file-descriptor = ["tokio-util/io"]
 sources-fluent = ["dep:base64", "sources-utils-net-tcp", "tokio-util/net", "dep:rmpv", "dep:rmp-serde", "dep:serde_bytes"]
 sources-gcp_pubsub = ["gcp", "dep:h2", "dep:prost-types", "protobuf-build", "dep:tonic"]
 sources-heroku_logs = ["sources-utils-http", "sources-utils-http-query", "sources-http_server"]
-sources-host_metrics =  ["heim/cpu", "heim/host", "heim/memory", "heim/net"]
 sources-http_client = ["sources-utils-http-client"]
 sources-http_server = ["sources-utils-http", "sources-utils-http-query"]
 sources-internal_logs = []
@@ -759,7 +757,6 @@ enterprise = [
   "dep:sha2",
   "sinks-datadog_logs",
   "sinks-datadog_metrics",
-  "sources-host_metrics",
   "sources-internal_logs",
   "sources-internal_metrics",
   "transforms-remap",
