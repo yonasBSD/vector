@@ -31,7 +31,7 @@ use crate::{
         util::{http::RequestConfig, retries::ExponentialBackoff},
     },
     sources::{
-        host_metrics::{Collector, HostMetricsConfig},
+        //host_metrics::{Collector, HostMetricsConfig},
         internal_logs::InternalLogsConfig,
         internal_metrics::InternalMetricsConfig,
     },
@@ -509,14 +509,7 @@ fn setup_metrics_reporting(
     let host_metrics = HostMetricsConfig {
         namespace: Some("vector.host".to_owned()),
         scrape_interval_secs: Duration::from_secs_f64(datadog.reporting_interval_secs),
-        collectors: Some(vec![
-            Collector::Cpu,
-            Collector::Disk,
-            Collector::Load,
-            Collector::Host,
-            Collector::Memory,
-            Collector::Network,
-        ]),
+        collectors: Some(vec![]),
         ..Default::default()
     };
 

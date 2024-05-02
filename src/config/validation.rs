@@ -1,6 +1,5 @@
 use crate::config::schema;
 use futures_util::{stream, FutureExt, StreamExt, TryFutureExt, TryStreamExt};
-use heim::{disk::Partition, units::information::byte};
 use indexmap::IndexMap;
 use std::{collections::HashMap, path::PathBuf};
 use vector_lib::{buffers::config::DiskUsage, internal_event::DEFAULT_OUTPUT};
@@ -222,6 +221,8 @@ pub async fn check_buffer_preconditions(config: &Config) -> Result<(), Vec<Strin
         return Ok(());
     }
 
+    return Ok(());
+    /*
     // Now query all the mountpoints on the system, and get their total capacity. We also have to
     // sort the mountpoints from longest to shortest so we can find the longest prefix match for
     // each buffer data directory by simply iterating from beginning to end.
@@ -308,8 +309,10 @@ Reduce the `max_size` of the buffers to fit within the total capacity of the mou
     } else {
         Err(errors)
     }
+    */
 }
 
+/*
 async fn process_partitions(partitions: Vec<Partition>) -> heim::Result<IndexMap<PathBuf, u64>> {
     stream::iter(partitions)
         .map(Ok)
@@ -321,6 +324,7 @@ async fn process_partitions(partitions: Vec<Partition>) -> heim::Result<IndexMap
         .try_collect::<IndexMap<_, _>>()
         .await
 }
+*/
 
 pub fn warnings(config: &Config) -> Vec<String> {
     let mut warnings = vec![];

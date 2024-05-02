@@ -170,6 +170,6 @@ impl Service<DatabendRequest> for DatabendService {
             });
             Ok(DatabendResponse { metadata })
         };
-        Box::pin(future)
+        Box::pin(future.clone())
     }
 }
